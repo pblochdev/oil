@@ -1,0 +1,33 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: url('../images/bg-carbon.png');
+	padding: 0;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	color: #2c2c2c;
+	font-weight: 600;
+}
+
+.main-container {
+	max-width: 1000px;
+	margin: auto;
+	background: #fff;
+	padding: 10px;
+}
+
+.menu {
+	list-style-type: none;
+	margin: 0;
+}
+
+.menu li {
+	display: inline-block;
+	padding: 10px 15px;
+}
+
+.menu li a {
+	display: block;
+}

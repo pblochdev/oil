@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{% for measure in measures %}
+		<div>
+			{{ measure.km }}
+		</div>
+	{% endfor %}
+	
+	<a href="{{ path('measure_add') }}">Dodaj nowy pomiar</a>
+	
+{% endblock %}

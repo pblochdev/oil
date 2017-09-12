@@ -2,12 +2,48 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+		{% block stylesheets %}
+			<link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+		{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+		<div class="main-container">
+			<ul class="menu">
+				<li>
+					<a href="{{ path('fos_user_registration_register') }}">Zarejestruj</a>
+				</li>
+				{% if app.user %}
+				<li>
+					<a href="{{ path('fos_user_security_logout') }}">Wyloguj</a>
+				</li>
+				{% else %}
+				<li>
+					<a href="{{ path('fos_user_security_login') }}">Zaloguj</a>
+				</li>
+				{% endif %}
+				<li>
+					<a href="{{ path('car_add') }}">Dodaj auto</a>
+				</li>
+				<li>
+					<a href="{{ path('car_list') }}">Lista aut</a>
+				</li>
+				<li>
+					<a href="{{ path('measure_add') }}">Dodaj pomiar</a>
+				</li>
+				<li>
+					<a href="{{ path('measure_list') }}">Lista pomiarów</a>
+				</li>
+			</ul>
+			
+			{% block body %}{% endblock %}
+		</div>
+        {% block javascripts %}
+			<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+		{% endblock %}
     </body>
 </html>

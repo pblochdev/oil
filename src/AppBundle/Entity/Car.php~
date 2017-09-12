@@ -173,27 +173,4 @@ class Car
     {
         return $this->measures;
     }
-
-    /**
-     * Set defaultCar
-     *
-     * @param \AppBundle\Entity\DefaultCar $defaultCar
-     * @return Car
-     */
-    public function setDefaultCar(\AppBundle\Entity\DefaultCar $defaultCar = null)
-    {
-        $this->defaultCar = $defaultCar;
-
-        return $this;
-    }
-
-    /**
-     * Get defaultCar
-     *
-     * @return \AppBundle\Entity\DefaultCar 
-     */
-    public function getDefaultCar()
-    {
-        return $this->defaultCar;
-    }
 }

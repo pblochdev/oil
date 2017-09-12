@@ -70,27 +70,4 @@ class User extends BaseUser
     {
         return $this->cars;
     }
-
-    /**
-     * Set defaultCar
-     *
-     * @param \AppBundle\Entity\DefaultCar $defaultCar
-     * @return User
-     */
-    public function setDefaultCar(\AppBundle\Entity\DefaultCar $defaultCar = null)
-    {
-        $this->defaultCar = $defaultCar;
-
-        return $this;
-    }
-
-    /**
-     * Get defaultCar
-     *
-     * @return \AppBundle\Entity\DefaultCar 
-     */
-    public function getDefaultCar()
-    {
-        return $this->defaultCar;
-    }
 }

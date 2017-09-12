@@ -24,28 +24,28 @@ class Measure
     /**
      * @var string
      *
-     * @ORM\Column(name="price", type="decimal", scale=2)
+     * @ORM\Column(name="price", type="decimal", precision=2, scale=0)
      */
     private $price;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="totalPrice", type="decimal", scale=2)
+     * @ORM\Column(name="totalPrice", type="decimal", precision=2, scale=0)
      */
     private $totalPrice;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="km", type="decimal", scale=2)
+     * @ORM\Column(name="km", type="decimal", precision=2, scale=0)
      */
     private $km;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="liter", type="decimal", scale=2)
+     * @ORM\Column(name="liter", type="decimal", precision=2, scale=0)
      */
     private $liter;
 
@@ -155,28 +155,5 @@ class Measure
     public function getLiter()
     {
         return $this->liter;
-    }
-
-    /**
-     * Set car
-     *
-     * @param \AppBundle\Entity\Car $car
-     * @return Measure
-     */
-    public function setCar(\AppBundle\Entity\Car $car = null)
-    {
-        $this->car = $car;
-
-        return $this;
-    }
-
-    /**
-     * Get car
-     *
-     * @return \AppBundle\Entity\Car 
-     */
-    public function getCar()
-    {
-        return $this->car;
     }
 }

@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+	<h1>Dodaj pomiar</h1>
+	<h2>Twoj aktywny samochód to: {{ currentCar }}</h2>
+	{{ form_start(form) }}
+		{{ form_widget(form) }}
+		<input type="submit" class="btn btn-primary pull-right" value="Dodaj" />
+	{{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('js/measureAdd.js') }}"></script>
+{% endblock %}

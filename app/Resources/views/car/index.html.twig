@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{% for car in cars %}
+		<div>
+			{{ car.name }} 
+			{% if car.defaultCar %}
+				Aktywny
+			{% else %}
+				<a href="{{ path('car_default', { id: car.id }) }}">Ustaw jako aktywny</a>
+			{% endif %}
+		</div>
+	{% endfor %}
+	
+	<a href="{{ path('car_add') }}">Dodaj nowy samochód</a>
+	
+{% endblock %}
