@@ -1,0 +1,13 @@
+.car-item {
+	padding: 10px 3px;
+	border-bottom: 1px solid #aaa;
+}
+
+.car-item.active {
+	background-color: #76323f;
+	color: #fff;
+}
+
+.make-active {
+	float: right;
+}

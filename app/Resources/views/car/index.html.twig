@@ -2,16 +2,21 @@
 
 {% block body %}
 	{% for car in cars %}
-		<div>
+		<div class="car-item {{(car.defaultCar) ? 'active' : '' }}">
 			{{ car.name }} 
 			{% if car.defaultCar %}
-				Aktywny
+				<span class="make-active">Aktywny</span>
 			{% else %}
-				<a href="{{ path('car_default', { id: car.id }) }}">Ustaw jako aktywny</a>
+				<a class="make-active" href="{{ path('car_default', { id: car.id }) }}">Ustaw</a>
 			{% endif %}
 		</div>
 	{% endfor %}
 	
 	<a href="{{ path('car_add') }}">Dodaj nowy samochód</a>
+	
+	{% block stylesheets %}
+		{{ parent() }}
+		<link rel="stylesheet" href="{{ asset('css/car/index.css') }}" />
+	{% endblock %}
 	
 {% endblock %}

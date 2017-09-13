@@ -32,7 +32,7 @@ class MeasureController extends Controller
 			array('car' => $defaultCar->getCarId()),
 			array('id' => 'ASC')
 		);
-		
+		//var_dump($measures['0']->getCreatedAt());
         return $this->render('measure/index.html.twig', array(
 			'measures' => $measures
         ));

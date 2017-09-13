@@ -24,7 +24,7 @@ class CarController extends Controller
 			array('id' => 'ASC')
 		);
 		
-        return $this->render('oil/index.html.twig', array(
+        return $this->render('car/index.html.twig', array(
 			'cars' => $cars
         ));
     }
@@ -70,7 +70,7 @@ class CarController extends Controller
 		}
 		
 		
-		return $this->render('oil/add.html.twig', array(
+		return $this->render('car/add.html.twig', array(
 			'form' => $form->createView()
         ));
 	}

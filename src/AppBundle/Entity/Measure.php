@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -55,7 +56,21 @@ class Measure
      * @ORM\JoinColumn(name="car_id", referencedColumnName="id")
     */
 	private $car;
-    /**
+	
+	 /**
+     * @var DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    private $createdAt;
+	
+	
+	public function __construct() 
+	{
+		$this->createdAt = new DateTime('now');
+	}
+	
+	/**
      * Get id
      *
      * @return integer 
@@ -160,10 +175,10 @@ class Measure
     /**
      * Set car
      *
-     * @param \AppBundle\Entity\Car $car
+     * @param Car $car
      * @return Measure
      */
-    public function setCar(\AppBundle\Entity\Car $car = null)
+    public function setCar(Car $car = null)
     {
         $this->car = $car;
 
@@ -173,10 +188,33 @@ class Measure
     /**
      * Get car
      *
-     * @return \AppBundle\Entity\Car 
+     * @return Car 
      */
     public function getCar()
     {
         return $this->car;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Measure
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
     }
 }

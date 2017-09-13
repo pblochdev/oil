@@ -11,21 +11,12 @@
 			<link rel="stylesheet" href="{{ asset('css/main.css') }}" />
 		{% endblock %}
     </head>
-    <body>
-		<div class="main-container">
+    <body class="menu-collapsed">
+		<div id="main_menu">
 			<ul class="menu">
 				<li>
-					<a href="{{ path('fos_user_registration_register') }}">Zarejestruj</a>
+					<a href="{{ path('home') }}">Strona główna</a>
 				</li>
-				{% if app.user %}
-				<li>
-					<a href="{{ path('fos_user_security_logout') }}">Wyloguj</a>
-				</li>
-				{% else %}
-				<li>
-					<a href="{{ path('fos_user_security_login') }}">Zaloguj</a>
-				</li>
-				{% endif %}
 				<li>
 					<a href="{{ path('car_add') }}">Dodaj auto</a>
 				</li>
@@ -38,12 +29,39 @@
 				<li>
 					<a href="{{ path('measure_list') }}">Lista pomiarów</a>
 				</li>
+				<li>
+					<a href="{{ path('fos_user_registration_register') }}">Zarejestruj</a>
+				</li>
+				{% if app.user %}
+				<li>
+					<a href="{{ path('fos_user_security_logout') }}">Wyloguj</a>
+				</li>
+				{% else %}
+				<li>
+					<a href="{{ path('fos_user_security_login') }}">Zaloguj</a>
+				</li>
+				{% endif %}
 			</ul>
+		</div>
+		<div class="header">
+			<div id="menu_icon">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		<div class="main-container">
 			
+			{% for msg in app.session.flashBag.get('success') %}
+				<div class="alert-success">
+					{{ msg }}
+				</div>
+			{% endfor %}
 			{% block body %}{% endblock %}
 		</div>
         {% block javascripts %}
 			<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+			<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 		{% endblock %}
     </body>
 </html>

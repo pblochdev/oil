@@ -1,9 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+	<div>
+		<h2>Pomiary dla samochodu: {{ measures[0].car.name }}</h2>
+	</div>
 	{% for measure in measures %}
-		<div>
-			{{ measure.km }}
+		<div class="panel-header">
+			{{ measure.km }} {{ measure.createdAt | date('Y-m-d') }}
+		</div>
+		<div class="panel-body">
 		</div>
 	{% endfor %}
 	
