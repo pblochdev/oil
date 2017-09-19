@@ -1,17 +1,43 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('css/measure/index.css') }}" />
+{% endblock %}
+
 {% block body %}
 	<div>
-		<h2>Pomiary dla samochodu: {{ measures[0].car.name }}</h2>
+		<h2>Tankowania paliwa dla samochodu: {{ currentCar}}</h2>
 	</div>
 	{% for measure in measures %}
-		<div class="panel-header">
-			{{ measure.km }} {{ measure.createdAt | date('Y-m-d') }}
+		<div class="item">
+		<div class="item-header">
+			<div>{{ measure.createdAt | date('Y-m-d') }}</div>
+			<div>{{ measure.totalPrice }} zł</div>
+			<div>{{ measure.km }} km</div>
 		</div>
-		<div class="panel-body">
+		<div class="item-body">
+			<div>
+				Zatankowanych litrów: <b>{{ measure.liter }}</b>
+			</div>
+			<div>
+				Cena za litr: <b>{{ measure.price }}</b>
+			</div>
+			<div>
+				Ilość przjechanych km: <b>{{ measure.passedKm }}</b>
+			</div>
+			<div>
+				Spalanie (L/100km): <b>{{ measure.fuelConsumption }}</b>
+			</div>
+		</div>
 		</div>
 	{% endfor %}
 	
-	<a href="{{ path('measure_add') }}">Dodaj nowy pomiar</a>
+	<a class="btn" href="{{ path('measure_add') }}">Dodaj nowy pomiar</a>
 	
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('js/measureIndex.js') }}"></script>
 {% endblock %}

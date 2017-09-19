@@ -1,0 +1,28 @@
+.item-header {
+	border-bottom: solid 2px #76323f;
+	padding: 10px 0;
+	display: flex;
+}
+
+.item.active .item-header {
+	background-color: #76323f;
+	color: #fff;
+}
+
+.item-header > div {
+	width: 33%;
+	text-align: center;
+}
+
+.item-body {
+	display: none;
+	border-bottom: solid 2px #76323f;
+}
+
+.item.active .item-body {
+	background-color: #d7cec7;
+}
+
+.item-body > div {
+	padding: 10px;
+}

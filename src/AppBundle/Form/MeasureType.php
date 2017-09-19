@@ -12,22 +12,27 @@ class MeasureType extends AbstractType
 	public function buildForm(FormBuilderInterface $builder, array $options) 
 	{
 		$builder
-			->add('liter', 'text', array(
-				'attr' => array(
-					'placeholder' => '0.00'
-				)
-			))
+			
 			->add('price', 'text', array(
+				'label' => 'Cena za litr',
 				'attr' => array(
 					'placeholder' => '0.00'
 				)
 			))
 			->add('totalPrice', 'text', array(
+				'label' => 'Suma zł',
+				'attr' => array(
+					'placeholder' => '0.00'
+				)
+			))
+			->add('liter', 'text', array(
+				'label' => 'Ilość litrów',
 				'attr' => array(
 					'placeholder' => '0.00'
 				)
 			))
 			->add('km', 'text', array(
+				'label' => 'Ilość km',
 				'attr' => array(
 					'placeholder' => '0.00'
 				)

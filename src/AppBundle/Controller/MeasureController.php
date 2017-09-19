@@ -20,22 +20,16 @@ class MeasureController extends Controller
 	 */
 	public function indexAction()
 	{
-		$user = $this->getUser();
-		
 		$em = $this->getDoctrine()->getManager();
 		
-		$defaultCar = $em->getRepository(DefaultCar::class)->findOneByUserId($user->getId());
+		$defaultCar = $em->getRepository(DefaultCar::class)->findOneByUserId($this->getUser()->getId());
 		
-		$repository = $this->getDoctrine()->getRepository(Measure::class);
+		$measures = $this->container->get('app.measure')->getMeasures();
 		
-		$measures = $repository->findBy(
-			array('car' => $defaultCar->getCarId()),
-			array('id' => 'ASC')
-		);
-		//var_dump($measures['0']->getCreatedAt());
-        return $this->render('measure/index.html.twig', array(
-			'measures' => $measures
-        ));
+		return $this->render('measure/index.html.twig', array(
+			'measures' => $measures,
+			'currentCar' => $defaultCar->getCarId()->getName()
+		));
 	}
 	
 	

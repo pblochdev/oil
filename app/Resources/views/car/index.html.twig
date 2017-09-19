@@ -1,6 +1,11 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+		{{ parent() }}
+		<link rel="stylesheet" href="{{ asset('css/car/index.css') }}" />
+	{% endblock %}
 {% block body %}
+	<h2>Lista Twoich samochodów:</h2>
+	
 	{% for car in cars %}
 		<div class="car-item {{(car.defaultCar) ? 'active' : '' }}">
 			{{ car.name }} 
@@ -12,11 +17,8 @@
 		</div>
 	{% endfor %}
 	
-	<a href="{{ path('car_add') }}">Dodaj nowy samochód</a>
+	<a class="btn" href="{{ path('car_add') }}">Dodaj nowy samochód</a>
 	
-	{% block stylesheets %}
-		{{ parent() }}
-		<link rel="stylesheet" href="{{ asset('css/car/index.css') }}" />
-	{% endblock %}
+	
 	
 {% endblock %}

@@ -1,12 +1,11 @@
 
-
 body {
 	background: #fff;
 	padding: 0;
 	margin: 0;
 	font-family: 'Open Sans', sans-serif;
-	color: #4a4a4a;
-	color: #76323f;
+	color: #2a2a2a;
+	/*color: #76323f;*/
 	font-weight: 600;
 	position: relative;
 	overflow-x: hidden;
@@ -121,4 +120,35 @@ input {
 input[type="submit"] {
 	background-color: #76323f;
 	color: #fff;
+	margin-top: 10px;
+}
+
+
+/*** alerts ***/
+
+.flash-message {
+	font-size: 16px;
+}
+
+.flash-succes {
+	color: #009933;
+}
+
+.flash-succes {
+	color: #c70000;
+}
+
+
+.main-container .btn {
+	background-color: #76323f;
+	color: #fff;
+	padding: 10px;
+	margin: 10px 0;
+	display: inline-block;
+	border-radius: 2px;
+	text-decoration: none;
+}
+
+body > div:last-of-type {
+	display: none;
 }

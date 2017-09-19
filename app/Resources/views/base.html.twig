@@ -29,14 +29,14 @@
 				<li>
 					<a href="{{ path('measure_list') }}">Lista pomiarów</a>
 				</li>
-				<li>
-					<a href="{{ path('fos_user_registration_register') }}">Zarejestruj</a>
-				</li>
 				{% if app.user %}
 				<li>
 					<a href="{{ path('fos_user_security_logout') }}">Wyloguj</a>
 				</li>
 				{% else %}
+				<li>
+					<a href="{{ path('fos_user_registration_register') }}">Zarejestruj</a>
+				</li>
 				<li>
 					<a href="{{ path('fos_user_security_login') }}">Zaloguj</a>
 				</li>
@@ -52,10 +52,12 @@
 		</div>
 		<div class="main-container">
 			
-			{% for msg in app.session.flashBag.get('success') %}
-				<div class="alert-success">
-					{{ msg }}
-				</div>
+			{% for label, messages in app.session.flashbag.all %}
+				{% for message in messages %}
+					<div class=" flash-message flash-{{ label }}">
+						{{ message }}
+					</div>
+				{% endfor %}
 			{% endfor %}
 			{% block body %}{% endblock %}
 		</div>

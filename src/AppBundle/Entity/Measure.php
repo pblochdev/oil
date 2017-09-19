@@ -65,6 +65,8 @@ class Measure
     private $createdAt;
 	
 	
+	public $passedKm;
+	
 	public function __construct() 
 	{
 		$this->createdAt = new DateTime('now');
