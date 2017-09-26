@@ -14,6 +14,7 @@ class Measure
 	protected $request;
 	protected $tokenStorage;
 	protected $entityManager;
+	protected $measures;
 
 	public function __construct(
 		Request $request, 
@@ -31,7 +32,7 @@ class Measure
 	{
 		$defaultCar = $this->entityManager->getRepository(DefaultCar::class)->findOneByUserId($this->getUser()->getId());
 		
-		$measures = $this->entityManager
+		$this->measures = $this->entityManager
 			->getRepository(MeasureEntity::class)
 			->createQueryBuilder('p')
 			->where('p.car = :car')
@@ -41,9 +42,9 @@ class Measure
 			->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
 		
 		
-		$measures = $this->calcMeasures($measures);
+		$this->measures = $this->calcMeasures($this->measures);
 		
-		return $measures;
+		return $this->measures;
 	}
 	
 	
@@ -76,5 +77,15 @@ class Measure
 		return $measures;
 	}
 	
+	
+	public function getChartData()
+	{
+		if (empty($this->measures))
+		{
+			$this->getMeasures();
+		}
+		
+		
+	}
 	
 }

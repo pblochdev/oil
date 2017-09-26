@@ -30,16 +30,19 @@
 					<a href="{{ path('measure_list') }}">Lista pomiarów</a>
 				</li>
 				{% if app.user %}
-				<li>
-					<a href="{{ path('fos_user_security_logout') }}">Wyloguj</a>
-				</li>
+					<li>
+						<a href="{{ path('fos_user_profile_show') }}">Profil</a>
+					</li>
+					<li>
+						<a href="{{ path('fos_user_security_logout') }}">Wyloguj</a>
+					</li>
 				{% else %}
-				<li>
-					<a href="{{ path('fos_user_registration_register') }}">Zarejestruj</a>
-				</li>
-				<li>
-					<a href="{{ path('fos_user_security_login') }}">Zaloguj</a>
-				</li>
+					<li>
+						<a href="{{ path('fos_user_registration_register') }}">Zarejestruj</a>
+					</li>
+					<li>
+						<a href="{{ path('fos_user_security_login') }}">Zaloguj</a>
+					</li>
 				{% endif %}
 			</ul>
 		</div>
@@ -49,6 +52,11 @@
 				<span></span>
 				<span></span>
 			</div>
+			{% if app.user %}
+				<span class="username">
+					Witaj, {{app.user.username}}
+				</span>
+			{% endif %}
 		</div>
 		<div class="main-container">
 			
